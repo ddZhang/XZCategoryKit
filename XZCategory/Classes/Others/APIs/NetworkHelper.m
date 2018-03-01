@@ -7,14 +7,14 @@
 //
 
 #import "NetworkHelper.h"
-#import <AFNetworking/AFNetworking.h>
+//#import <AFNetworking/AFNetworking.h>
 
 NSString * const POST = @"POST";
 NSString * const GET = @"GET";
 
 @interface NetworkHelper ()
 
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+//@property (nonatomic, strong) AFHTTPSessionManager *manager;
 
 @end
 
@@ -39,28 +39,28 @@ NSString * const GET = @"GET";
 }
 
 - (void)GET:(NSString *)URLString parameters:(id)parameters finishBlock:(void (^)(id, NSError *))finishBlock {
-    [self.manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        finishBlock(responseObject,nil);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        finishBlock(nil,error);
-    }];
+//    [self.manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        finishBlock(responseObject,nil);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        finishBlock(nil,error);
+//    }];
 }
 
 - (void)POST:(NSString *)URLString parameters:(id)parameters finishBlock:(void (^)(id, NSError *))finishBlock {
-    [self.manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        finishBlock(responseObject,nil);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        finishBlock(nil,error);
-    }];
+//    [self.manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        finishBlock(responseObject,nil);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        finishBlock(nil,error);
+//    }];
 }
 
-- (AFHTTPSessionManager *)manager {
-    if (_manager == nil) {
-        _manager = [AFHTTPSessionManager manager];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"text/html", @"text/plain", @"text/json", @"text/javascript", @"application/json"]];
-        _manager.requestSerializer.timeoutInterval = 15;
-    }
-    return _manager;
-}
+//- (AFHTTPSessionManager *)manager {
+//    if (_manager == nil) {
+//        _manager = [AFHTTPSessionManager manager];
+//        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"text/html", @"text/plain", @"text/json", @"text/javascript", @"application/json"]];
+//        _manager.requestSerializer.timeoutInterval = 15;
+//    }
+//    return _manager;
+//}
 
 @end
